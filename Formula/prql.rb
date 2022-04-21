@@ -10,7 +10,7 @@ class Prql < Formula
   license "Apache-2.0"
 
   def install
-    bin install "prql"
+    bin.install "prql"
   end
 
   test do
