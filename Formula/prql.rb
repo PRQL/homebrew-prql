@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Prql < Formula
   desc "PRQL is a modern language for transforming data — a simpler and more powerful SQL"
   homepage "https://github.com/prql/prql"
