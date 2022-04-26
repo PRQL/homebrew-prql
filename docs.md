@@ -1,6 +1,7 @@
+
 # State
  - [x] **Formula created:**
- - The initial formula has been created, it contains the basic structure. Now It has to be defined every part in it.
+ - The initial formula has been created, it contains the basic structure. Now each part has to be defined properly.
  
  - [x] **Dependencies checked**
  - Thanks to cargo, the only dependency needed for homebrew is Rust (`depends_on "rust" => :build`).
@@ -16,15 +17,26 @@
  
 
  - [ ] **OS availables**
+ - For the formula to be [accepted](https://docs.brew.sh/Acceptable-Formulae#supported-platforms-in-homebrewcore) by homebrew it's needs to build and pass tests on the latest 3 supported macOS versions  and on x86_64 Linux.
+ - Test on Linux: 0/3
+ - Test on macOS: 0/3
 
+ - [ ] **Versioning system**
+
+It would be optimal that the formula automatically have the last    stable release of the github. (Or even better, that the formula    change so as you can download which version you pleased)
+
+There's a [rough idea](https://federicoterzi.com/blog/how-to-publish-your-rust-project-on-homebrew/) about using azure pipelines in order to achieve it:
+
+> I **automated the whole process** using [Azure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) so that everytime I push an update to the `master` branch on GitHub, my project is automatically built, tested and published on Homebrew.
+
+ 
+ 
 
 ## References
  [Homebrew for a Rust app](https://jldlaughlin.medium.com/how-does-homebrew-work-starring-rust-94ae5aa24552).
  
- [Publish a rust app on homebrew](https://federicoterzi.com/blog/how-to-publish-your-rust-project-on-homebrew/).
+ [Publish a rust app on homebrew (espanso)](https://federicoterzi.com/blog/how-to-publish-your-rust-project-on-homebrew/).
  
  [Rust docs](https://doc.rust-lang.org/cargo/commands/cargo-build.html).
  
  [Homebrew docs](https://docs.brew.sh/Formula-Cookbook#bininstall-foo).
- 
-
