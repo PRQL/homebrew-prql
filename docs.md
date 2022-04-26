@@ -1,5 +1,8 @@
 
 # State
+
+### THIS IS THE [BIBLE](https://docs.brew.sh/Acceptable-Formulae) IN ORDER TO GET PRQL ON HOMEBREW :eyes:
+
  - [x] **Formula created:**
  - The initial formula has been created, it contains the basic structure. Now each part has to be defined properly.
  
