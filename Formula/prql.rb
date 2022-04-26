@@ -10,7 +10,6 @@ class Prql < Formula
 
   def install
     system "cargo", "build", "--release", "--bin", "prql"
-    bin.install "target/release/prql"
   end
 
   test do
