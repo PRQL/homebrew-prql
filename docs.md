@@ -20,8 +20,11 @@
 
 ## References
  [Homebrew for a Rust app](https://jldlaughlin.medium.com/how-does-homebrew-work-starring-rust-94ae5aa24552).
+ 
  [Publish a rust app on homebrew](https://federicoterzi.com/blog/how-to-publish-your-rust-project-on-homebrew/).
+ 
  [Rust docs](https://doc.rust-lang.org/cargo/commands/cargo-build.html).
+ 
  [Homebrew docs](https://docs.brew.sh/Formula-Cookbook#bininstall-foo).
  
 
