@@ -11,7 +11,7 @@ jobs:
       - run: echo "from employees | filter has_dog" | prql compile
 
   macOS-install:
-    runs-on: macos-lastest
+    runs-on: macos-10.15
     steps:
       - run: brew tap rog0d/prql
       - run: brew install prql
