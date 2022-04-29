@@ -6,13 +6,13 @@ jobs:
     steps:
       - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - run: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-      - run: brew tap rog0d/prql
+      - run: brew tap prql/prql
       - run: brew install prql
       - run: echo "from employees | filter has_dog" | prql compile
 
   macOS-install:
     runs-on: macos-10.15
     steps:
-      - run: brew tap rog0d/prql
+      - run: brew tap prql/prql
       - run: brew install prql
       - run: echo "from employees | filter has_dog" | prql compile
