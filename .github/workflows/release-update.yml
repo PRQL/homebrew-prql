@@ -1,6 +1,5 @@
 name: update-brew
-on:
-  workflow_dispatch:
+on: workflow_dispatch
   jobs:
     dispatcher:
       runs-on: ubuntu-latest
