@@ -4,5 +4,6 @@ on:
   jobs:
     dispatcher:
       runs-on: ubuntu-latest
-        - run: echo "the dispatch is working on a new release"
-        
+      steps:
+      - run: |
+          echo "the dispatch is working on a new release"
