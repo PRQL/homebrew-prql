@@ -5,7 +5,7 @@ on:
       version:
         description: 'Version of the release'
         required: true
-      url:
+      URL:
         description: 'URL to the .tar of the release'
         required: true
         
