@@ -1,13 +1,14 @@
 name: update-brew
-on: workflow_dispatch
-  inputs:
-    version:
-      description: 'Version of the release'
-      required: true
-    url:
-      description: 'URL to the .tar of the release'
-      required: true
-      
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version of the release'
+        required: true
+      url:
+        description: 'URL to the .tar of the release'
+        required: true
+        
 jobs:
   dispatcher:
     runs-on: ubuntu-latest
