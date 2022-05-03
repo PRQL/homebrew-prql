@@ -14,4 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "the dispatch is working on a new release ${{ github.events.inputs.version }}, ${{ github.events.inputs.URL }}"
+        echo "the dispatch is working on a new release. version: ${{ github.event.inputs.version }}, and URL: ${{ github.event.inputs.URL }}"
