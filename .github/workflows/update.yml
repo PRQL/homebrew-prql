@@ -1,3 +1,4 @@
+name: update-brew
 on: workflow_dispatch
 jobs:
   dispatcher:
