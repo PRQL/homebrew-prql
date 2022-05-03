@@ -1,8 +1,16 @@
 name: update-brew
 on: workflow_dispatch
+  inputs:
+    version:
+      description: 'Version of the release'
+      required: true
+    url:
+      description: 'URL to the .tar of the release'
+      required: true
+      
 jobs:
   dispatcher:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "the dispatch is working on a new release ${{ inputs.version }}, ${{ inputs.URL }}"
+        echo "the dispatch is working on a new release ${{ inputs.version }}, ${{ inputs.url }}"
