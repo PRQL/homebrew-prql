@@ -15,15 +15,3 @@ jobs:
     steps:
     - run: |
         echo "the dispatch is working on a new release. version: ${{ github.event.inputs.version }}, and URL: ${{ github.event.inputs.URL }}"
-  
-  editTag:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: edit variable
-        run: | 
-          echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      - name: test
-        run: |
-          echo $TAG
-          echo ${{ env.TAG }}
