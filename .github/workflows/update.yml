@@ -20,9 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: | 
+      run: | 
         echo "TAG=${github.event.inputs.version}" >> $GITHUB_ENV
     - name: test
-    - run: |
+      run: |
         echo $TAG
         echo ${{ env.TAG }}
