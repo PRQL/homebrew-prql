@@ -20,6 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "TAG=${{ github.event.inputs.version#refs/*/ }}" >> $GITHUB_ENV
+        echo "TAG=${github.event.inputs.version#*refs/tags/}"
         echo $TAG
-        echo "${{ env.TAG }}"
+        echo "${TAG}"
