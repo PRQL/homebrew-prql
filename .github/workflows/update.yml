@@ -21,7 +21,7 @@ jobs:
     steps:
     - run: | 
         echo "tagged=$TAG"
-        echo "tagget=${tagged#refs/tags/*}"
+        echo "$tagged"
       env:
         TAG: ${{ github.event.inputs.version }}
         URL: ${{ github.event.inputs.URL }}
