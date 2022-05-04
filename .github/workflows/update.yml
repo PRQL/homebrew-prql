@@ -19,9 +19,7 @@ jobs:
   editTag:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - run: | 
-        echo "tagged=$TAG"
-        echo "$tagged"
-      env:
-        TAG: ${{ github.event.inputs.version }}
-        URL: ${{ github.event.inputs.URL }}
+        echo "TAG=$github.event.inputs.version)" >> $GITHUB_ENV
+        echo $TAG
