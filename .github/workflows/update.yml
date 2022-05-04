@@ -21,4 +21,4 @@ jobs:
     steps:
     - run: | 
         echo TAG="${{ github.event.inputs.version }}"
-        echo TAG=${TAG#*refs/tags/}
+        echo TAGGED=${TAG#*refs/tags/}
