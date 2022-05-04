@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: edit variable
         run: | 
-          echo "TAG=${github.event.inputs.version}" >> $GITHUB_ENV
+          echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: test
         run: |
           echo $TAG
