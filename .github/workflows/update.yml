@@ -19,10 +19,11 @@ jobs:
   editTag:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      run: | 
-        echo "TAG=${github.event.inputs.version}" >> $GITHUB_ENV
-    - name: test
-      run: |
-        echo $TAG
-        echo ${{ env.TAG }}
+      - uses: actions/checkout@v2
+      - name: edit variable
+        run: | 
+          echo "TAG=${github.event.inputs.version}" >> $GITHUB_ENV
+      - name: test
+        run: |
+          echo $TAG
+          echo ${{ env.TAG }}
