@@ -22,4 +22,6 @@ jobs:
        - run: | 
           export TAG="${{ github.event.inputs.version }}"
           echo $TAG
+          export TAGGED=${TAG#*refs/tags/}
+          echo $TAGGED
 
