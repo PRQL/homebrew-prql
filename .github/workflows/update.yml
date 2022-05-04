@@ -20,5 +20,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: | 
-        echo TAG=${{ github.event.inputs.version }} 
-        echo TAG=${TAG#*refs/tags/}
+        echo TAG=${{ github.event.inputs.version }} \ echo TAG=${TAG#*refs/tags/}
