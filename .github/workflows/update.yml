@@ -21,6 +21,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        echo "TAG=github.event.inputs.version#refs/*/" >> $github_env
+        echo "TAG=github.event.inputs.version#refs/*/" >> $GITHUB_ENV
         echo $TAG
         echo "${{ env.TAG }}"
