@@ -15,3 +15,11 @@ jobs:
     steps:
     - run: |
         echo "the dispatch is working on a new release. version: ${{ github.event.inputs.version }}, and URL: ${{ github.event.inputs.URL }}"
+  
+  editTag:
+      runs-on: ubuntu-latest
+      steps:
+       - run: | 
+          export TAG="${{ github.event.inputs.version }}"
+          echo $TAG
+
