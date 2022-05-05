@@ -16,13 +16,12 @@ jobs:
        - run: | 
           export TAG="${{ github.event.inputs.version }}"
           echo $TAG
-          export TAG=${TAG#*refs/tags/} >> $GITHUB_ENV
-          echo $TAG
-          echo ${{ env.TAG }}
+          echo ::set-output name=tag::$TAG
 
   editFormula:
       runs-on: ubuntu-latest
       steps:
        - run: |
-          echo ${{ env.TAG }}
+          echo $TAG
+          echo ${{ steps.var.outputs.tag }}
           echo ${{ github.events.inputs.URL }}
