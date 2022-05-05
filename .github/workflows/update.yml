@@ -16,7 +16,7 @@ jobs:
        - run: | 
           export TAG="${{ github.event.inputs.version }}"
           echo $TAG
-          echo TAG=${TAG#*refs/tags/} >> $GITHUB_ENV
+          export TAG=${TAG#*refs/tags/} >> $GITHUB_ENV
           echo $TAG
           echo ${{ env.TAG }}
 
