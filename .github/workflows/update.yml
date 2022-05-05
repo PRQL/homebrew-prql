@@ -10,18 +10,19 @@ on:
         required: true
         
 jobs:
-  dispatcher:
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo "the dispatch is working on a new release. version: ${{ github.event.inputs.version }}, and URL: ${{ github.event.inputs.URL }}"
-  
   editTag:
       runs-on: ubuntu-latest
       steps:
        - run: | 
           export TAG="${{ github.event.inputs.version }}"
           echo $TAG
-          export TAGGED=${TAG#*refs/tags/}
-          echo $TAGGED
+          echo TAG=${TAG#*refs/tags/} >> $GITHUB_ENV
+          echo $TAG
+          echo ${{ env.TAG }}
 
+  editFormula:
+      runs-on: ubuntu-latest
+      steps:
+       - run: |
+          echo ${{ env.TAG }}
+          echo ${{ github.events.inputs.URL }}
