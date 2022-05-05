@@ -16,7 +16,9 @@ jobs:
        - run: | 
           export TAG="${{ github.event.inputs.version }}"
           echo $TAG
-          echo ::set-output name=tag::${TAG#*refs/tags/}
+          export TAG=${TAG#*refs/tags/}
+          echo $TAG
+          ::set-output name=tag::$TAG
 
   editFormula:
       runs-on: ubuntu-latest
