@@ -18,12 +18,12 @@ jobs:
           echo $TAG
           export TAG=${TAG#*refs/tags/}
           echo $TAG
-          ::set-output name=tag::$TAG
+          echo ::set-output name=tag::$TAG
 
   editFormula:
       runs-on: ubuntu-latest
       steps:
        - run: |
           echo $TAG
-          echo ${{ steps.var.outputs.tag }}
-          echo ${{ github.events.inputs.URL }}
+          echo export $URL=${{ github.events.inputs.URL }}
+          echo $URL
