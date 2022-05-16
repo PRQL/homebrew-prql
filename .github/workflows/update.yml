@@ -18,7 +18,7 @@ jobs:
       steps:
        - id: tagstep
          run: | 
-          export TAG="${{ github.event.inputs.version }}"
+          export TAG=${{ github.event.inputs.version }}
           echo $TAG
           export TAG=${TAG#*refs/tags/}
           export TAG=\"${TAG}\"
@@ -37,6 +37,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - run: |
-            ${{ needs.editTag.outputs.tag }} ${{ needs.editTag.outputs.url }} 
+            export TAG=${{ needs.editTag.outputs.tag }}
+            echo $TAG
+            export URL=${{ needs.editTag.outputs.url }} 
+            echo $URL
             
 
