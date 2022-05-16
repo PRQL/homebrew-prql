@@ -22,12 +22,12 @@ jobs:
           export TAG=${TAG#*refs/tags/}
           export TAG=\"${TAG}\"
           echo $TAG
-          echo "::set-output name=tag::$TAG"
+          ::set-output name=tag::$TAG
 
           export URL=${{ github.event.inputs.URL }}
           export URL=\"${URL}\"
           echo $URL
-          echo "::set-output name=url::$URL"
+          ::set-output name=url::$URL
 
   commitTags:
       needs: editTag
