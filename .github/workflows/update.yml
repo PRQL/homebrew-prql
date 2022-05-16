@@ -12,6 +12,9 @@ on:
 jobs:
   editTag:
       runs-on: ubuntu-latest
+      outputs:
+        tag: ${{ steps.step1.outputs.tag }}
+        URL: ${{ steps.step1.outputs.url }}
       steps:
        - run: | 
           export TAG="${{ github.event.inputs.version }}"
@@ -19,5 +22,17 @@ jobs:
           export TAG=${TAG#*refs/tags/}
           export TAG=\"${TAG}\"
           echo $TAG
+          echo "::set-output name=tag::$TAG"
+
           export URL=${{ github.event.inputs.URL }}
+          export URL=\"${URL}\"
           echo $URL
+          echo "::set-output name=url::$URL"
+
+  commitTags:
+      needs: editTag
+      runs-on: ubuntu-latest
+      steps:
+        - run: |
+            echo ${{ needs.editTag.outputs.tag }} ${{ needs.editTag.outputs.url }} 
+
