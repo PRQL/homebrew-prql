@@ -37,5 +37,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - run: |
-            echo ${{needs.editTag.outputs.tag}} ${{needs.editTag.outputs.url}} 
+            ${{ needs.editTag.outputs.tag }} ${{ needs.editTag.outputs.url }} 
+            
 
