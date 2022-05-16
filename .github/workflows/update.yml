@@ -15,20 +15,18 @@ jobs:
       outputs:
         tag: ${{ steps.tagstep.outputs.tag }}
         url: ${{ steps.urlstep.outputs.url }}
+
       steps:
        - id: tagstep
          run: | 
           export TAG=${{ github.event.inputs.version }}
-          echo $TAG
           export TAG=${TAG#*refs/tags/}
-          export TAG=\"${TAG}\"
           echo $TAG
           echo "::set-output name=tag::$TAG"
 
        - id: urlstep
          run: |
           export URL=${{ github.event.inputs.URL }}
-          export URL=\"${URL}\"
           echo $URL
           echo "::set-output name=url::$URL"
 
@@ -36,12 +34,35 @@ jobs:
       needs: editTag
       runs-on: ubuntu-latest
       steps:
-        - run: |
+        - id: checkout
+          uses: actions/checkout@v2
+
+        - id: variables
+          run: |
             export TAG=${{ needs.editTag.outputs.tag }}
             export TAG=\"${TAG}\"
             echo $TAG
+            sed -i "6s/version .*/version $TAG/" prql.rb
+
             export URL=${{ needs.editTag.outputs.url }} 
             export URL=\"${URL}\"
             echo $URL
+            sed -i "4s/url .*/url $URL/" prql.rb
+
+        - id: setup git config
+          run: |
+            git config user.name "GitHub Actions Bot"
+            git config user.email "<>"
+
+        - id: commit
+          run: |
+            git add prql.rb
+            git commit -m "Automated update of tag and version"
+            git push origin actions
+            
+
+
+
+
             
 
