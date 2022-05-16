@@ -19,5 +19,5 @@ jobs:
           export TAG=${TAG#*refs/tags/}
           export TAG=\"${TAG}\"
           echo $TAG
-          echo export $URL=${{ github.event.inputs.URL }}
+          export URL=${{ github.event.inputs.URL }}
           echo $URL
