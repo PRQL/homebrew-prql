@@ -17,7 +17,7 @@ jobs:
         url: ${{ steps.urlstep.outputs.url }}
       steps:
        - id: tagstep
-       - run: | 
+         run: | 
           export TAG="${{ github.event.inputs.version }}"
           echo $TAG
           export TAG=${TAG#*refs/tags/}
@@ -26,7 +26,7 @@ jobs:
           echo "::set-output name=tag::$TAG"
 
        - id: urlstep
-       - run: |
+         run: |
           export URL=${{ github.event.inputs.URL }}
           export URL=\"${URL}\"
           echo $URL
