@@ -38,8 +38,10 @@ jobs:
       steps:
         - run: |
             export TAG=${{ needs.editTag.outputs.tag }}
+            export TAG=\"${TAG}\"
             echo $TAG
             export URL=${{ needs.editTag.outputs.url }} 
+            export URL=\"${URL}\"
             echo $URL
             
 
