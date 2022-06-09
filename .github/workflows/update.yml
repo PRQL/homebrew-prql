@@ -62,7 +62,7 @@ jobs:
 
             git add .
             git commit -m "Automated update of tag and version"
-            git push origin actions
+            git push 
             
             
 
