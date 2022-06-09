@@ -37,7 +37,7 @@ jobs:
         - name: checkout
           uses: actions/checkout@v3
 
-        - name: create variables
+        - name: changes on prql.rb
           run: |
             export TAG=${{ needs.editTag.outputs.tag }}
             export TAG=\"${TAG}\"
@@ -57,6 +57,7 @@ jobs:
             git add .
             git commit -m "Automated update of tag and version"
             git push
+
             
             
             
