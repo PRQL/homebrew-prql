@@ -49,7 +49,7 @@ jobs:
 
             cd Formula
             sed -i "6 s/version .*/version $TAG/" "prql.rb"
-            sed -i "4 s/url .*/url $URL/" "prql.rb"
+            sed -i "4 s@url .*@url $URL@" "prql.rb"
 
             git config user.name github-actions
             git config user.email github-actions@github.com
