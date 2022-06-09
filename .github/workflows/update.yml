@@ -46,10 +46,7 @@ jobs:
             export URL=${{ needs.editTag.outputs.url }} 
             export URL=\"${URL}\"
             echo $URL
-            
 
-        - name: changes on prql.rb
-          run: |
             cd Formula
             sed -i "6s/version .*/version $TAG/" prql.rb
             sed -i "4s/url .*/url $URL/" prql.rb
@@ -60,6 +57,7 @@ jobs:
             git add .
             git commit -m "Automated update of tag and version"
             git push
+            
             
             
 
