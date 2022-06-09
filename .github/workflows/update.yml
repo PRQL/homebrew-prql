@@ -35,7 +35,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
         - name: create variables
           run: |
@@ -64,7 +64,7 @@ jobs:
 
         - name: commit
           run: |
-            git add Formula/prql.rb
+            git add .
             git commit -m "Automated update of tag and version"
             git push origin actions
             
