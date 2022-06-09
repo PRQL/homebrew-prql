@@ -62,6 +62,8 @@ jobs:
 
             git add .
             git commit -m "Automated update of tag and version"
+            git remote rm origin
+            git remote add origin 'git@github.com:prql/homebrew-prql.git'
             git push 
             
             
