@@ -57,16 +57,13 @@ jobs:
             sed -i "6s/version .*/version $TAG/" prql.rb
             sed -i "4s/url .*/url $URL/" prql.rb
 
-        - name: git setup
-          run: |
             git config user.name "GitHub Actions Bot"
             git config user.email "<>"
 
-        - name: commit
-          run: |
             git add .
             git commit -m "Automated update of tag and version"
             git push origin actions
+            
             
 
 
