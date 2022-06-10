@@ -55,7 +55,8 @@ jobs:
             git config user.email github-actions@github.com
 
             git add .
-            git commit -m "Automated update of tag and version"
+            export TAG=${{ needs.editTag.outputs.tag }}
+            git commit -m "Automated update of tag and version: $TAG"
             git push
 
             
