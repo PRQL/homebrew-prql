@@ -10,7 +10,7 @@ on:
         required: true
         
 jobs:
-  editTag:
+  edit-tag:
       runs-on: ubuntu-latest
       outputs:
         tag: ${{ steps.tagstep.outputs.tag }}
@@ -30,8 +30,8 @@ jobs:
           echo $URL
           echo "::set-output name=url::$URL"
 
-  commitTags:
-      needs: editTag
+  commit-tags:
+      needs: edit-tag
       runs-on: ubuntu-latest
       steps:
         - name: checkout
