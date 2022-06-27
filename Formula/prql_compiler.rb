@@ -1,4 +1,4 @@
-class Prql < Formula
+class Prql_compiler < Formula
   desc "PRQL is a modern language for transforming data — a simpler and more powerful SQL"
   homepage "https://prql.github.io/prql-website/"
   url "https://github.com/prql/prql/archive/refs/tags/0.1.1.tar.gz"
@@ -9,8 +9,8 @@ class Prql < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release", "--bin", "prql"
-    bin.install "target/release/prql"
+    system "cargo", "build", "--release", "--bin", "prql-compiler"
+    bin.install "target/release/prql-compiler"
   end
 
   test do
