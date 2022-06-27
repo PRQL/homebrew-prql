@@ -49,7 +49,7 @@ jobs:
 
             wget ${{ needs.edit-tag.outputs.url }}
             echo shasum -a 256 ${{ needs.edit-tag.outputs.tag }}.tar.gz
-            export SHA =$(shasum -a 256 ${{ needs.edit-tag.outputs.tag }}.tar.gz)
+            export SHA=$(shasum -a 256 ${{ needs.edit-tag.outputs.tag }}.tar.gz)
             export SHA=$(echo $SHA | cut -f 1  -d ' ')
             export SHA=\"${SHA}\"
             echo $SHA
