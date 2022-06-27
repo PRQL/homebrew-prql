@@ -37,7 +37,7 @@ jobs:
         - name: checkout
           uses: actions/checkout@v3
 
-        - name: changes on prql.rb
+        - name: changes on prql-compiler.rb
           run: |
             export TAG=${{ needs.editTag.outputs.tag }}
             export TAG=\"${TAG}\"
@@ -47,9 +47,18 @@ jobs:
             export URL=\"${URL}\"
             echo $URL
 
+            wget $URL
+            echo shasum -a 256 $TAG.tar.gz
+            export SHA =$(shasum -a 256 $TAG.tar.gz)
+            export SHA=$(echo $SHA | cut -f 1  -d ' ')
+            export SHA=\"${SHA}\"
+
+            
+
             cd Formula
-            sed -i "6 s/version .*/version $TAG/" "prql.rb"
-            sed -i "4 s@url .*@url $URL@" "prql.rb"
+            sed -i "6 s/version .*/version $TAG/" "prql-compiler.rb"
+            sed -i "4 s@url .*@url $URL@" "prql-compiler.rb"
+            sed -i "5 s/sha256 .*/sha256 $SHA/" "prql-compiler.rb"
 
             git config user.name github-actions
             git config user.email github-actions@github.com
