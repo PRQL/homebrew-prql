@@ -52,6 +52,7 @@ jobs:
             export SHA =$(shasum -a 256 $TAG.tar.gz)
             export SHA=$(echo $SHA | cut -f 1  -d ' ')
             export SHA=\"${SHA}\"
+            echo $SHA
 
             cd Formula
             sed -i "6 s/version .*/version $TAG/" "prql-compiler.rb"
