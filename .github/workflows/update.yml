@@ -39,11 +39,11 @@ jobs:
 
         - name: changes on prql-compiler.rb
           run: |
-            export TAG=${{ needs.editTag.outputs.tag }}
+            export TAG=${{ needs.edit-tag.outputs.tag }}
             export TAG=\"${TAG}\"
             echo $TAG
 
-            export URL=${{ needs.editTag.outputs.url }} 
+            export URL=${{ needs.edit-tag.outputs.url }} 
             export URL=\"${URL}\"
             echo $URL
 
@@ -52,8 +52,6 @@ jobs:
             export SHA =$(shasum -a 256 $TAG.tar.gz)
             export SHA=$(echo $SHA | cut -f 1  -d ' ')
             export SHA=\"${SHA}\"
-
-            
 
             cd Formula
             sed -i "6 s/version .*/version $TAG/" "prql-compiler.rb"
