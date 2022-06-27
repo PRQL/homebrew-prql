@@ -64,7 +64,7 @@ jobs:
 
             git add .
             export TAG=${{ needs.edit-tag.outputs.tag }}
-            git commit -m "Automated update of tag and version: $TAG"
+            git commit -m "Automated update of tag, version and SHA256: $TAG"
             git push
 
             
