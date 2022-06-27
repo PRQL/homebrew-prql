@@ -1,4 +1,4 @@
-class Prql_compiler < Formula
+class PrqlCompiler < Formula
   desc "PRQL is a modern language for transforming data — a simpler and more powerful SQL"
   homepage "https://prql.github.io/prql-website/"
   url "https://github.com/prql/prql/archive/refs/tags/0.1.1.tar.gz"
