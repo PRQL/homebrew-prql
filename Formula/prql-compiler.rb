@@ -10,7 +10,7 @@ class PrqlCompiler < Formula
 
   def install
     system "cargo", "build", "--release", "--bin", "prql-compiler"
-    bin.install "target/release/prql-compiler"
+    bin.install "target/release/prql"
   end
 
   test do
