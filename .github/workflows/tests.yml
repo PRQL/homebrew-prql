@@ -10,12 +10,12 @@ jobs:
       - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - run: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       - run: brew tap prql/homebrew-prql
-      - run: brew install prql
-      - run: echo "from employees | filter has_dog" | prql compile
+      - run: brew install prql-compiler
+      - run: echo "from employees | filter has_dog" | prql-compiler compile
 
   macOS-install:
     runs-on: macos-10.15
     steps:
       - run: brew tap prql/homebrew-prql
-      - run: brew install prql
-      - run: echo "from employees | filter has_dog" | prql compile
+      - run: brew install prql-compiler
+      - run: echo "from employees | filter has_dog" | prql-compiler compile

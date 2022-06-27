@@ -5,18 +5,18 @@ this repository serves as a [Tap](https://docs.brew.sh/Taps) containing the form
 To install the tap:
 
     brew tap prql/homebrew-prql
-Then, to install prql:
+Then, to install prql-compiler:
 						
-	brew install prql
+	brew install prql-compiler
 
 A quick test to check everything went just fine:
 
-	echo "from employees | filter has_dog" | prql compil
+	echo "from employees | filter has_dog" | prql-compiler compile
 
 ## Unistallation
 First, uninstall prql:
 
-	brew unistall prql
+	brew unistall prql-compiler
 
 Then, untap the repo:
 
