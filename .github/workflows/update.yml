@@ -47,9 +47,9 @@ jobs:
             export URL=\"${URL}\"
             echo $URL
 
-            wget $URL
-            echo shasum -a 256 $TAG.tar.gz
-            export SHA =$(shasum -a 256 $TAG.tar.gz)
+            wget ${{ needs.edit-tag.outputs.url }}
+            echo shasum -a 256 ${{ needs.edit-tag.outputs.url }}.tar.gz
+            export SHA =$(shasum -a 256 ${{ needs.edit-tag.outputs.url }}.tar.gz)
             export SHA=$(echo $SHA | cut -f 1  -d ' ')
             export SHA=\"${SHA}\"
             echo $SHA
