@@ -1,9 +1,9 @@
 class PrqlCompiler < Formula
   desc "PRQL is a modern language for transforming data — a simpler and more powerful SQL"
   homepage "https://prql-lang.org"
-  url "https://github.com/prql/prql/archive/refs/tags/0.2.2.tar.gz"
-  sha256 "c23d30611b4851f8d62297eca8e3851b16772548dfde00ca2df23e17e8264cd0"
-  version "0.2.2"
+  url "https://github.com/prql/prql/archive/refs/tags/0.2.3.tar.gz"
+  sha256 "f07ba7d735cdb73c37a3f67c97ebfc9b1d54abe6b91a6ee931f733ddd2fa93de"
+  version "0.2.3"
   license "Apache-2.0"
   
   depends_on "rust" => :build
