@@ -11,13 +11,11 @@ jobs:
     steps:
       - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - run: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-      - run: brew tap prql/homebrew-prql
-      - run: brew install prql-query
+      - run: brew install prql/prql/prql-query
       - run: pq --help
 
   macOS-install:
     runs-on: macos-10.15
     steps:
-      - run: brew tap prql/homebrew-prql
-      - run: brew install prql-query
+      - run: brew install prql/prql/prql-query
       - run: pq --help
