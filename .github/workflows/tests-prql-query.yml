@@ -1,0 +1,21 @@
+name: tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  linux-install:
+    runs-on: ubuntu-latest
+    steps:
+      - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - run: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      - run: brew install prql/prql/prql-query
+      - run: pq --help
+
+  macOS-install:
+    runs-on: macos-10.15
+    steps:
+      - run: brew install prql/prql/prql-query
+      - run: pq --help
