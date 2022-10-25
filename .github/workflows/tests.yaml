@@ -21,5 +21,9 @@ jobs:
       # TODO: move into the prql-query formula
       - uses: egor-tensin/setup-clang@v1
         if: matrix.os == 'ubuntu-latest'
+
+      # TODO: hack — currently this is failing on Linux — https://github.com/prql/homebrew-prql/issues/8
       - run: brew install prql/prql/prql-query
+        if: matrix.os != 'ubuntu-latest'
       - run: pq --help
+        if: matrix.os != 'ubuntu-latest'
