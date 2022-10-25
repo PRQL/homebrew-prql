@@ -22,5 +22,6 @@ jobs:
       # prql-query
       # TODO: move into the prql-query formula
       - uses: egor-tensin/setup-clang@v1
+        if: ${{ matrix.os }} == 'ubuntu-latest'
       - run: brew install prql/prql/prql-query
       - run: pq --help
