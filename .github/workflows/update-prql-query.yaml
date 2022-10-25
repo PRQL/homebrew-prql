@@ -1,0 +1,70 @@
+# This is mostly a copy-paste of `update.yaml`
+
+name: update-brew
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version of the release"
+        required: true
+      URL:
+        description: "URL to the .tar of the release"
+        required: true
+
+jobs:
+  edit-tag:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.tagstep.outputs.tag }}
+      url: ${{ steps.urlstep.outputs.url }}
+
+    steps:
+      - id: tagstep
+        run: |
+          export TAG=${{ github.event.inputs.version }}
+          export TAG=${TAG#*refs/tags/}
+          echo $TAG
+          echo "::set-output name=tag::$TAG"
+
+      - id: urlstep
+        run: |
+          export URL=${{ github.event.inputs.URL }}
+          echo $URL
+          echo "::set-output name=url::$URL"
+
+  commit-tags:
+    needs: edit-tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: changes on prql-query.rb
+        run: |
+          export TAG=${{ needs.edit-tag.outputs.tag }}
+          export TAG=\"${TAG}\"
+          echo $TAG
+
+          export URL=${{ needs.edit-tag.outputs.url }} 
+          export URL=\"${URL}\"
+          echo $URL
+
+          wget ${{ needs.edit-tag.outputs.url }}
+          echo shasum -a 256 ${{ needs.edit-tag.outputs.tag }}.tar.gz
+          export SHA=$(shasum -a 256 ${{ needs.edit-tag.outputs.tag }}.tar.gz)
+          export SHA=$(echo $SHA | cut -f 1  -d ' ')
+          export SHA=\"${SHA}\"
+          echo $SHA
+
+          cd Formula
+          sed -i "6 s/version .*/version $TAG/" "prql-query.rb"
+          sed -i "4 s@url .*@url $URL@" "prql-query.rb"
+          sed -i "5 s/sha256 .*/sha256 $SHA/" "prql-query.rb"
+
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git add .
+          export TAG=${{ needs.edit-tag.outputs.tag }}
+          git commit -m "Automated update of tag, version and SHA256: $TAG"
+          git push

@@ -1,0 +1,24 @@
+name: tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+          - os: macos-latest
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@master
+      # prql-compiler
+      - run: brew install prql/prql/prql-compiler
+      - run: echo "from employees | filter has_dog" | prql-compiler compile
+      # prql-query
+      - run: brew install prql/prql/prql-query
+      - run: pq --help
