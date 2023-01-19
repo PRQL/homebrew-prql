@@ -17,7 +17,7 @@ jobs:
 
       # prql-compiler
       - run: brew install prql/prql/prql-compiler
-      - run: echo "from employees | filter has_dog" | prql-compiler compile
+      - run: echo "from employees | filter has_dog" | prqlc compile
       # prql-query
       # TODO: move into the prql-query formula
       - uses: egor-tensin/setup-clang@v1
