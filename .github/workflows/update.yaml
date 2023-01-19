@@ -55,7 +55,6 @@ jobs:
             echo $SHA
 
             cd Formula
-            sed -i "6 s/version .*/version $TAG/" "prql-compiler.rb"
             sed -i "4 s@url .*@url $URL@" "prql-compiler.rb"
             sed -i "5 s/sha256 .*/sha256 $SHA/" "prql-compiler.rb"
 
@@ -64,7 +63,7 @@ jobs:
 
             git add .
             export TAG=${{ needs.edit-tag.outputs.tag }}
-            git commit -m "Automated update of tag, version and SHA256: $TAG"
+            git commit -m "Automated update of tag and SHA256: $TAG"
             git push
 
             
