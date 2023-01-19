@@ -14,6 +14,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     steps:
       - uses: Homebrew/actions/setup-homebrew@master
+
       # prql-compiler
       - run: brew install prql/prql/prql-compiler
       - run: echo "from employees | filter has_dog" | prql-compiler compile
@@ -27,3 +28,6 @@ jobs:
         if: matrix.os != 'ubuntu-latest'
       - run: pq --help
         if: matrix.os != 'ubuntu-latest'
+
+      - run: brew audit --strict --online --git --token-conflicts --tap prql/prql
+        
