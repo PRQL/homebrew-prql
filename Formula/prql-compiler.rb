@@ -9,8 +9,8 @@ class PrqlCompiler < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release", "--bin", "prql-compiler"
-    bin.install "target/release/prql-compiler"
+    system "cargo", "build", "--release", "--bin", "prqlc"
+    bin.install "target/release/prqlc"
   end
 
   test do
