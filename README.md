@@ -5,15 +5,15 @@ This repository serves as a [Tap](https://docs.brew.sh/Taps) containing the form
 
 ## Installation
 
-### prql-compiler
+### prqlc
 
-To install prql-compiler:
+To install prqlc:
 
-    brew install prql/prql/prql-compiler
+    brew install prql/prql/prqlc
 
 A test:
 
-    echo "from employees | filter has_dog" | prql-compiler compile
+    echo "from employees | filter has_dog" | prqlc compile
 
 ### prql-query
 
