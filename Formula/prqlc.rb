@@ -1,6 +1,3 @@
-# This is deprecated in favor of `prqlc` — if there's a way to make that
-# explicit, that would be a welcome contribution!
-
 class PrqlCompiler < Formula
   desc "PRQL is a modern language for transforming data: a simpler and more powerful SQL"
   homepage "https://prql-lang.org"
@@ -11,7 +8,7 @@ class PrqlCompiler < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "prql-compiler/prqlc")
+    system "cargo", "install", *std_cargo_args(path: "prqlc/prqlc")
   end
 
   test do
