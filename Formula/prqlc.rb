@@ -1,4 +1,4 @@
-class PrqlCompiler < Formula
+class Prqlc < Formula
   desc "PRQL is a modern language for transforming data: a simpler and more powerful SQL"
   homepage "https://prql-lang.org"
   url "https://github.com/PRQL/prql/archive/refs/tags/0.4.1.tar.gz"
@@ -8,7 +8,7 @@ class PrqlCompiler < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "prqlc/prqlc")
+    system "cargo", "install", *std_cargo_args(path: "prql-compiler/prqlc")
   end
 
   test do
