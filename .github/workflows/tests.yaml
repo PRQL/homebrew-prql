@@ -18,7 +18,7 @@ jobs:
 
       # prqlc
       - run: brew install --verbose --build-from-source --formula Formula/prqlc.rb
-      - run: brew test --formula Formula/prqlc.rb
+      - run: brew test Formula/prqlc.rb
       - run: brew audit --strict --online --git --token-conflicts --formula ./Formula/prqlc.rb
 
       # prql-query
