@@ -12,6 +12,9 @@ class Prqlc < Formula
   end
 
   test do
-    system bin/"prqlc", "-h"
+    system bin/"prqlc", "--help"
+    (testpath/"test.prql").write("from artists")
+    # TODO: can we test the beginning of the output (even just `SELECT`)
+    system bin/"prqlc", "compile", testpath/"test.prql"
   end
 end

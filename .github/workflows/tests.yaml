@@ -11,13 +11,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        # TODO: clean up prql-query, and add prqlc & prql-query as items in a matrix
         os: [ubuntu-latest, macos-latest]
     steps:
       - uses: Homebrew/actions/setup-homebrew@master
 
       # prqlc
-      - run: brew install prql/prql/prqlc
-      - run: echo "from employees | filter has_dog" | prqlc compile
+      - run: brew install --verbose --build-from-source --formula Formula/prqlc.rb
+      - run: brew test Formula/prqlc.rb
+      - run: brew audit --strict --online --git --token-conflicts --formula ./Formula/prqlc.rb
+
       # prql-query
       # TODO: move into the prql-query formula
       - uses: egor-tensin/setup-clang@v1
@@ -26,7 +29,6 @@ jobs:
       # TODO: hack — currently this is failing on Linux — https://github.com/prql/homebrew-prql/issues/8
       - run: brew install prql/prql/prql-query
         if: matrix.os != 'ubuntu-latest'
+      # TODO: move into the prql-query formula
       - run: pq --help
         if: matrix.os != 'ubuntu-latest'
-
-      - run: brew audit --strict --online --git --token-conflicts --tap prql/prql
