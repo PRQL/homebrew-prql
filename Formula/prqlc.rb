@@ -1,8 +1,8 @@
 class Prqlc < Formula
   desc "PRQL is a modern language for transforming data: a simpler and more powerful SQL"
   homepage "https://prql-lang.org"
-  url "https://github.com/PRQL/prql/archive/refs/tags/0.6.0.tar.gz"
-  sha256 "ce7df7185ac6812e86a206cebc48ca950e0eef3cc1ba74eace70ca8255ac0caa"
+  url "https://github.com/PRQL/prql/archive/refs/tags/0.6.1.tar.gz"
+  sha256 "84bb9349129ed14b7ab17361faac3535be5f21b46c9757c1fed96a0e1023dd65"
   license "Apache-2.0"
 
   depends_on "rust" => :build
