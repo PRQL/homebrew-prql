@@ -1,8 +1,8 @@
 class PrqlQuery < Formula
   desc "Query and transform data with PRQL"
   homepage "https://github.com/prql/prql-query"
-  url "https://github.com/prql/prql-query/archive/refs/tags/v0.0.14.tar.gz"
-  sha256 "4b1ab070dacd25da3361edeb2a0728c4bedec0e9620105580072520eeb2ea5cd"
+  url "https://github.com/prql/prql-query/archive/refs/tags/v0.0.15.tar.gz"
+  sha256 "8613dd980c6726abfa81adf227593ff402ec03c54b26499c64ae950b35a2b0cf"
   license "Apache-2.0"
 
   depends_on "rust" => :build
